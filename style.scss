@@ -1,0 +1,392 @@
+$primary--color:#ffc87a;
+$text--color:#1a2b5f;
+$light--color:#6A7597;
+html{
+    font-size: 62.5%;
+    color: $text--color;
+}
+*,
+*:before,
+*:after{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+img{
+    display: block;
+    max-width: 100%;
+}
+a{
+    text-decoration: none;
+}
+body{
+    font-family: 'Poppins', sans-serif;
+    color: $text--color;
+    line-height: 1.4;
+}
+@mixin flex($align:flex-start,$justify:flex-start,$wrap:nowrap,$dir:row) {
+    display: flex;
+    align-items: $align;
+    justify-content: $justify;
+    flex-wrap: $wrap;
+    flex-direction:$dir;
+}
+.wrapper{
+    max-width: 1440px;
+    margin: 0 auto;
+}
+.container{
+    margin: 0 auto;
+    max-width: 1170px;
+    // padding-left: 1.5rem;
+    // padding-right: 1.5rem;
+}
+.header{
+    padding-top: 3rem;
+    &__inner{
+        @include flex(center,space-between)
+    }
+    &__menu{
+        &-list{
+            @include flex(center);
+            list-style: none;
+        }
+        &-item{
+            font-size: 1.7rem;
+            color: $text--color;
+            margin-left: 5rem;
+            &:last-child{
+                margin-left: 7rem;
+            }
+        }
+        &-link{
+            color: $text--color;
+            text-decoration: none;
+            transition: linear 0.25s;
+            &:hover{
+                text-decoration: none;
+                color: $primary--color;
+            }
+        }
+        
+    }
+    &__login{
+        padding: 1rem 2.5rem;
+        border: 1px solid;
+        border-radius: 2.5rem;
+        display: inline-block;
+        &:hover{
+            color: $primary--color;
+        }
+    }
+
+}
+.logo{
+    font-size: 2.8rem;
+    font-weight:600;
+    color: $text--color;
+    &__text{
+        color: $primary--color;
+    }
+}
+.logo:hover{
+    text-decoration: none;
+    color: $text--color;
+}
+.banner{
+    padding-top:12rem;
+    margin: 0 auto;
+    text-align: center;
+    max-width: 75rem;
+    padding-bottom: 15rem;
+    &__heading{
+        font-weight: 700;
+        font-size: 6.8rem;
+        color: $text--color;
+    }
+    &__desc{
+        color: $light--color;
+        margin-top: 3rem;
+        font-size: 2.3rem;
+        font-weight: 400;
+    }
+    &__button{
+        @include flex(stretch,center);
+        margin-top: 4.5rem;
+        .btn{
+            margin: 0 1rem;
+        }
+    }
+}
+.btn{
+    cursor: pointer;
+    font-size: 1.6rem;
+    padding: 1.5rem 3.5rem;
+    text-align: center;
+    outline: none;
+    display: inline-block;
+    border: 0;
+    background-color: transparent;
+    &--border{
+        border: 1px solid currentColor;
+        border-radius: 3rem;
+    }
+    &--primary{
+        background-color: $primary--color;
+        border-radius: 3rem;
+        box-shadow: 0 5px 25px -5px $primary--color;
+    }
+}
+.category{
+    &__list{
+        @include flex(stretch,space-between,wrap);
+    }
+    &__item{
+        width:calc(25% - 22.5px);
+        padding: 2.5rem;
+        background-color: white;
+        border-radius: 25px;
+        margin-bottom: 4rem;
+        &:first-child{
+            box-shadow:0 5px 25px 5px rgba(255, 151, 195, 0.25);
+        }
+        &:nth-child(2){
+            box-shadow:0 5px 25px 5px rgba(255, 122, 109, 0.25);
+        }
+        &:nth-last-child(2){
+            box-shadow:0 5px 25px 5px rgba(133, 152, 255, 0.25);
+        }
+        &:last-child{
+            box-shadow:0 5px 25px 5px rgba(255, 200, 122, 0.25);
+        }
+    }
+    &__image{
+        border-radius:inherit;
+        object-fit: cover;
+        height: 23rem;
+        width: 100%;
+        margin-bottom: 3rem;
+    }
+    &__name{
+        font-size: 2.5rem;
+        font-weight: 500;
+        margin-bottom: 2rem;
+        //Tieu de qua dai
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    &__details{
+        font-size: 1.5rem;
+        margin-bottom:3rem;
+        color: $light--color;
+    }
+}
+.feature{
+    &__item{
+        margin-top: 14rem;
+        display: flex;
+        &:nth-child(odd){
+            .feature__info{
+                padding-left: 10rem;
+            }
+        }
+        &:nth-child(even){
+            flex-direction: row-reverse;
+            .feature__info{
+                padding-right: 10rem;
+            }
+        }
+    }
+    &__image,&__info{
+        width: 50%;
+    }
+    &__title{
+        margin-top: 10rem;
+        font-size: 3.8rem;
+        font-weight: 600;
+    }
+    &__desc{
+        margin-top: 3.5rem;
+        font-size: 1.6rem;
+        color: $light--color;
+    }
+    &-intro{
+        &__list{
+            padding-top: 3.5rem;
+        }
+        &__item{
+            font-weight: 600;
+            font-size: 1.6rem;
+            text-decoration: underline;
+            margin-bottom: 3.5rem;
+            &--circle{
+                padding-left: 3rem;
+                text-decoration: none;
+                position: relative;
+                &::before{
+                    content: "";
+                    left: 0;
+                    position: absolute;
+                    width: 2rem;
+                    height: 2rem;
+                    border-radius: 2rem;
+                    background-color: blue;
+                }
+                &:nth-child(2)::before{
+                    background-color: red;
+                }
+                &:nth-child(3)::before{
+                    background-color: greenyellow;
+                }
+                &:last-child::before{
+                    background-color:wheat;
+                }
+            }
+        }
+    }
+    &-best{
+        &__list{
+            display: flex;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        &__item{
+            margin-top: 3rem;
+            width: calc(50% - 30px);
+            margin-bottom: 3rem;
+        }
+        &__icon{
+        width: 5rem;
+        height: 5rem;
+        font-size: 2rem;
+        border-radius: 5px;
+        position: relative;
+        color: blue;
+        display:  flex !important;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+        &--green{
+            color: greenyellow;
+        }
+        &--red{
+            color: red;
+        }
+        &--purple{
+            color: purple;
+        }
+        &::after{
+            content: "";
+            width: 100%;
+            height: 100%;
+            border-radius: inherit;
+            background-color:currentColor;
+            opacity: 0.2;
+            top: 0;
+            left: 0;
+            position: absolute;
+        }
+        }
+        &__title{
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        &__desc{
+            color: $light--color;
+            font-size: 1.4rem;
+        }
+    }
+}
+.partners{
+    margin-top: 16rem;
+    margin-bottom: 19rem;
+    &__container{
+        max-width: 83rem;
+    }
+    &__title{
+        text-align: center;
+        font-size: 2.6rem;
+        font-weight: 600;
+        padding-bottom: 7rem;
+        margin-bottom: 7rem;
+        border-bottom: 2px solid currentColor;
+    }
+    &__list{
+        @include flex( center, space-between);
+    }
+}
+.connect{
+    text-align: center;
+    &__title{
+        font-size: 3.8rem;
+        font-weight: 600;
+        margin-bottom: 3rem;
+    }
+    &__notice{
+        font-size: 2.4rem;
+        font-weight: 600;
+        margin-bottom: 6.5rem;
+        span{
+            color: $primary--color;
+        }
+    }
+    &__list{
+        @include flex(center,space-between)
+    }
+}
+.subscribe{
+    margin-top: 16rem;
+    margin-bottom: 5rem;
+    &__container{
+        @include flex(flex-start,space-between);
+        padding-bottom: 8rem;
+        border-bottom: 2px solid;
+    }
+    &__title,
+    &__info{
+        width: 50%;
+    }
+    &__title{
+        max-width: 43rem;
+        font-size: 2.8rem;
+        font-weight: 600;
+    }
+    &__form{
+        background-color: #f2f1f6;
+        padding: 2rem;
+        @include flex(center,space-between);
+        margin-bottom: 3.5rem;
+    }
+    &__input{
+        border: 0;
+        outline: none;
+        background-color: inherit;
+        width: 100%;
+    }
+    &__button{
+        border: 0;
+        outline: none;
+        background-color: inherit;
+        cursor: pointer;
+    }
+    &__social i{
+        margin-left: 4rem;
+        font-size: 2.6rem;
+    }
+}
+.footer{
+    &__container{
+        @include flex(flex-start,space-between);
+    }
+    &__item{
+        width: 25%;
+    }
+    &__link{
+        display: block;
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+        width: fit-content;
+    }
+}
