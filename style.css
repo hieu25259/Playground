@@ -113,7 +113,7 @@ body {
   display: block;
 }
 .nav__input:checked ~ .header__menu-mobile{
-  transform: translateX(-45.5%);
+  transform: translateX(0%);
   transition: 0.3s;
 }
 .banner {
